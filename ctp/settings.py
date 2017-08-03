@@ -25,7 +25,7 @@ SECRET_KEY = 'y=-#yglo$l6__8d%pu^$=&gveo^92ht0(%hz4q1s-0n=86l7lh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','ctpbase.pythonanywhere.com',]
 
 
 # Application definition
