@@ -1,0 +1,20 @@
+{% extends 'ctpBase/base.html' %}
+{% block content %}   
+<style>
+   body {
+    background: url(/static/fon.jpg); 
+
+   }
+  </style>
+<form method="post" action="{%url 'poisk_primenimost'%}">
+  {% csrf_token %} 
+  {{ form }}
+
+  <input type="submit" value="Поиск детали по категории" />
+ 
+</form>
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,43 @@
+{% extends 'ctpBase/base.html' %}
+{% block content %}    
+<style>
+   body {
+    background: url(/static/fon.jpg); 
+    background-attachment: fixed;
+
+   }
+  </style>
+
+<div class="table-responsive"> 
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Каталожный номер</th>
+			<th>Альтернативный номер</th>
+			<th>Наименование</th>
+			<th>Дата добавления в БД</th>
+			<th>Занес в БД</th>
+			<th>Количество запросов</th>
+			
+		</tr>
+	</thead>
+		<tbody>
+			{% for det in detals %}
+				<tr>
+					<td><a href="{%url 'detal_detail' pk=det.pk %}"> {{ det.catalog_number }}</a></td>
+					<td>{{ det.alternativ_number }}</td>
+					<td>{{ det.naimenovanie }}</td>
+					<td>{{ det.published_date }}</td>
+					<td>{{det.author}}</td>
+					<td>{{ det.kolvo_zaprosov }}</td>
+				
+				</tr>
+
+			{% endfor %}
+		</tbody>
+
+
+
+</table>
+</div> 
+{% endblock content %}

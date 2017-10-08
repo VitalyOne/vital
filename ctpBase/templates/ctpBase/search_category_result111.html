@@ -1,0 +1,34 @@
+{% extends 'ctpBase/base.html' %}
+{% block content %}    
+<style>
+   body {
+    background: url(/static/fon.jpg); 
+
+   }
+  </style>
+{% for det in detals %}
+        <div>
+
+
+<a href="{%url 'detal_detail' pk=det.pk %}"><h3>Каталожный номер детали: {{ det.catalog_number }}</h3></a>
+<h3>Альтернативный номер детали: {{ det.alternativ_number }}</h3>
+<h4>Описание: {{ det.opisanie }}</h4>
+
+{% if det.published_date %}
+                <div class="date">
+                   Дата создания детали в БД:
+ {{ det.published_date }}
+                </div>
+            {% endif %}
+<p>Автор записи: {{det.author}}</p>
+
+<!--
+		<p>{{ det.opisanie }}</a></p>
+            <p>published: {{ det.published_date }}</p>
+            
+            <p>alt number {{ det.alternativ_number }}</p>
+		<p>kol-vo zaprosov {{ det.kolvo_zaprosov }}</p> -->
+<p>-------------------------------------------------------------------------------------------------------------------------------------------</p>
+        </div>
+    {% endfor %}
+{% endblock content %}

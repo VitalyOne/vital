@@ -1,0 +1,26 @@
+{% extends 'ctpBase/base.html' %}
+
+    {% block content %}
+	<style>
+   body {
+    background: url(/static/fon.jpg); 
+
+   }
+  </style>
+
+  
+        <h1>Информация о детале</h1>
+        <form method="POST" class="post-form">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-default">Save</button>
+        </form>
+ 
+
+
+
+
+
+
+
+
+ {% endblock %}

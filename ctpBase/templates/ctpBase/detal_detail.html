@@ -1,0 +1,48 @@
+{% extends 'ctpBase/base.html' %}
+
+    {% block content %}
+
+<style>
+   body {
+    background: url(/static/fon.jpg); 
+
+   }
+  </style>
+
+
+
+<div class="detal">
+
+<h1>Информация о запрошенной детали <span class="label label-default">{{ detal.catalog_number }}</span></h1>
+<h3>Каталожный номер детали: {{ detal.catalog_number }}</h3>
+<h3>Альтернативный номер детали: {{ detal.alternativ_number }}</h3>
+<h3>Наименование детали: {{ detal.naimenovanie }}</h3>
+<h4>Описание: {{ detal.opisanie }}</h4>
+{% if detal.published_date %}
+                <div class="date">
+                   Дата создания детали в БД:
+ {{ detal.published_date }}
+                </div>
+            {% endif %}
+<h4>
+<p>Автор записи: {{detal.author}}</p>		
+<a href="{% url 'detal_edit' pk=detal.pk %}"><span class="label label-success">Скорректировать</span></a>
+<a href="{% url 'detal_delete' pk=detal.pk %}"><span class="label label-danger">Удалить деталь из БД</span></a>
+</h4>
+            {% if detal.published_date %}
+                <div class="date">
+                    Дата создания детали в БД: {{ detal.published_date }}
+                </div>
+            {% endif %}
+<p> </p>
+
+<h4> Количество поисковых запросов на данную деталь: {{detal.kolvo_zaprosov}} </h4>
+<h4>
+<a href="{% url 'search_list' %}"><span class="label label-info">Вернуться к каталогу деталей</span></a>
+		
+  </h4>          
+            
+        </div>
+
+
+ {% endblock %}
